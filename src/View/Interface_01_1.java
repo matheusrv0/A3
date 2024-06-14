@@ -170,7 +170,7 @@ public class Interface_01_1 extends javax.swing.JFrame {
         Cadastro_pessoas Nova_tela = new Cadastro_pessoas(new javax.swing.JFrame(), true);
         Nova_tela.setVisible(true);
    } else {
-        JOptionPane.showMessageDialog(null, "Usuário INVÁLIDO!", "ERRO de LOGIN!", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Usuário INVÁLIDO!", "ERRO de DADOS!", JOptionPane.ERROR_MESSAGE);
 
     }
        

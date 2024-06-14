@@ -16,12 +16,14 @@ public class Pessoa {
     private String CPF;
     private Date Aniversario;
     private int idade;
+    private String telefone;
 
-    public Pessoa(String Nome, String CPF, String Aniversario) throws ParseException {
+    public Pessoa(String Nome, String CPF, String Aniversario, String telefone) throws ParseException {
         this.nome = Nome;
         this.CPF = CPF;
         TransformaData(Aniversario);
         CalcularIdade();
+        this.telefone = telefone;
     }
 
     public String getNome() {
@@ -55,8 +57,14 @@ public class Pessoa {
     public int getIdade() {
         return idade;
     }
+     public String getTelefone() {
+        return telefone;
+    }
 
-    
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+  
     private void TransformaData(String Aniversario) throws ParseException{
 
         SimpleDateFormat formato__data = new SimpleDateFormat("dd/MM/yyyy");

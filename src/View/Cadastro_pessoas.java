@@ -52,6 +52,8 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
         Camp_ano = new javax.swing.JTextField();
         Camp_Limpar = new javax.swing.JButton();
         Camp_Cadastrar = new javax.swing.JButton();
+        linha_fone = new javax.swing.JLabel();
+        Camp_Fone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -107,6 +109,16 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
             }
         });
 
+        linha_fone.setFont(new java.awt.Font("Microsoft YaHei", 0, 18)); // NOI18N
+        linha_fone.setForeground(new java.awt.Color(102, 0, 102));
+        linha_fone.setText("Telefone");
+
+        Camp_Fone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Camp_FoneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -119,24 +131,30 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(linha_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Camp_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(linha_data)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Camp_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Camp_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Camp_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Camp_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(linha_CPF)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Camp_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Camp_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(linha_data)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Camp_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(linha_fone)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Camp_Fone)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Camp_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Camp_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(Camp_Limpar)
@@ -161,9 +179,11 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(linha_CPF)
-                    .addComponent(Camp_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Camp_CPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(linha_fone)
+                    .addComponent(Camp_Fone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Camp_Limpar)
                     .addComponent(Camp_Cadastrar))
                 .addGap(28, 28, 28))
@@ -208,6 +228,7 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
         String Dia =  Camp_dia.getText();
         String Mes = Camp_mes.getText();
         String Ano = Camp_ano.getText();
+        String Fone = Camp_Fone.getText();
         String Aniversario = Dia + "/" + Mes + "/" + Ano;
         
         if (nome.isEmpty() || CPF.isEmpty() || Aniversario.isEmpty() || Dia.isEmpty() || Mes.isEmpty() || Ano.isEmpty() ) {
@@ -217,12 +238,13 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
             if (isValid == true) {
                 System.out.println("O CPF " + CPF + " é válido.");
                  try {
-                     Pessoa P = new Pessoa (nome, CPF, Aniversario);
+                 
+                     Pessoa P = new Pessoa (nome, CPF, Aniversario, Fone);
                      int idade = P.getIdade();
                       if (idade >= 120) {
                     JOptionPane.showMessageDialog(null, "A idade não pode ser maior ou igual a 120 anos!", "Idade Inválida", JOptionPane.ERROR_MESSAGE);
                 } else {
-                     JOptionPane.showMessageDialog(null, ("Nome: "+P.getNome()+"\nCPF: "+P.getCPF()+"\nData Aniversário: "+P.getAniversario()+"\nIdade: "+P.getIdade()), "Pessoa Cadastrada no Sistema!", JOptionPane.INFORMATION_MESSAGE);
+                     JOptionPane.showMessageDialog(null, ("Nome: "+P.getNome()+"\nCPF: "+P.getCPF()+"\nData Aniversário: "+P.getAniversario()+"\nIdade: "+P.getIdade()+"\nTelefone: "+P.getTelefone()), "Pessoa Cadastrada no Sistema!", JOptionPane.INFORMATION_MESSAGE);
                      limpar();
                       }
                  } catch (ParseException ex) {
@@ -233,12 +255,17 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_Camp_CadastrarActionPerformed
+
+    private void Camp_FoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Camp_FoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Camp_FoneActionPerformed
         private void limpar(){
         Camp_Nome.setText("");
         Camp_CPF.setText("");
         Camp_dia.setText("");
         Camp_mes.setText("");
-        Camp_ano.setText("");    
+        Camp_ano.setText("");  
+        Camp_Fone.setText("");
         }
         
     
@@ -287,6 +314,7 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Camp_CPF;
     private javax.swing.JButton Camp_Cadastrar;
+    private javax.swing.JTextField Camp_Fone;
     private javax.swing.JButton Camp_Limpar;
     private javax.swing.JTextField Camp_Nome;
     private javax.swing.JTextField Camp_ano;
@@ -297,6 +325,7 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel linha_CPF;
     private javax.swing.JLabel linha_data;
+    private javax.swing.JLabel linha_fone;
     private javax.swing.JLabel linha_nome;
     // End of variables declaration//GEN-END:variables
 

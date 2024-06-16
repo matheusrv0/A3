@@ -47,7 +47,7 @@ public class Pessoa {
         int mes_aniver = calendario.get(Calendar.MONTH)+1;
         int ano_aniver = calendario.get(Calendar.YEAR);
         
-        return (dia_aniver+"/"+mes_aniver+"/"+ano_aniver);
+        return (ano_aniver+"-"+mes_aniver+"-"+dia_aniver);
     }
 
     public void setAniversario(String Aniversario) throws ParseException {

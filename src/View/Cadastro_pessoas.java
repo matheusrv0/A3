@@ -4,6 +4,7 @@
  */
 package View;
 
+import Control.DAO.Cadastrar_Pessoa_DAO;
 import Model.Pessoa;
 import java.awt.Toolkit;
 import java.text.ParseException;
@@ -233,10 +234,12 @@ public class Cadastro_pessoas extends javax.swing.JDialog {
                      Pessoa P = new Pessoa (nome, CPF, Aniversario, Fone );
                      int idade = P.getIdade();
                       if (idade >= 120) {
-                    JOptionPane.showMessageDialog(null, "A idade não pode ser maior ou igual a 120 anos!", "Idade Inválida", JOptionPane.ERROR_MESSAGE);
-                } else {
-                     JOptionPane.showMessageDialog(null, ("Nome: "+P.getNome()+"\nCPF: "+P.getCPF()+"\nData Aniversário: "+P.getAniversario()+"\nIdade: "+P.getIdade()+"\nTelefone: "+P.getTelefone()), "Pessoa Cadastrada no Sistema!", JOptionPane.INFORMATION_MESSAGE);
-                     limpar();
+                            JOptionPane.showMessageDialog(null, "A idade não pode ser maior ou igual a 120 anos!", "Idade Inválida", JOptionPane.ERROR_MESSAGE);
+                      } else {
+                            Cadastrar_Pessoa_DAO Cadastrar_Pessoa = new Cadastrar_Pessoa_DAO();
+                            Cadastrar_Pessoa.Adicionar_Pessoa(P);
+                            JOptionPane.showMessageDialog(null, ("Nome: "+P.getNome()+"\nCPF: "+P.getCPF()+"\nData Aniversário: "+P.getAniversario()+"\nIdade: "+P.getIdade()+"\nTelefone: "+P.getTelefone()), "Pessoa Cadastrada no Sistema!", JOptionPane.INFORMATION_MESSAGE);
+                            limpar();
                       }
                  } catch (ParseException ex) {
                      Logger.getLogger(Cadastro_pessoas.class.getName()).log(Level.SEVERE, null, ex);

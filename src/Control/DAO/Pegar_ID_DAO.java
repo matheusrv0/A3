@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.util.Calendar;
 
-public class Pegar_ID_Pessoa_DAO {
+public class Pegar_ID_DAO {
     private Connection conexao;
     
     public Pessoa Pegar_Pessoa(String CPF) throws SQLException, ParseException{
